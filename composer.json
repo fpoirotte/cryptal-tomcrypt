@@ -1,0 +1,43 @@
+{
+    "prefer-stable": true,
+    "name": "fpoirotte/cryptal-tomcrypt",
+    "description": "An implementation of the Cryptography Abstraction Layer based on LibTomCrypt",
+    "keywords": ["cryptal", "crypto", "cryptography", "tomcrypt", "libtomcrypt"],
+    "homepage": "https://github.com/fpoirotte/cryptal-tomcrypt",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "François Poirotte",
+            "email": "clicky@erebot.net",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/fpoirotte/cryptal-tomcrypt/issues",
+        "irc": "irc://irc.iiens.net/Clicky",
+        "source": "https://github.com/fpoirotte/cryptal-tomcrypt"
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "ext-tomcrypt": "*",
+        "fpoirotte/cryptal": "dev-master"
+    },
+    "provides": {
+        "fpoirotte/cryptal-implementation": "0.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "*",
+        "erebot/buildenv": "^1.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "fpoirotte\\Cryptal\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        }
+    }
+}
