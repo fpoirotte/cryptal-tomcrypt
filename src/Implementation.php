@@ -88,28 +88,23 @@ class Implementation implements CryptoInterface
 
     public function encrypt($iv, $key, $data, &$tag = null, $aad = '')
     {
+        // Depending on the mode, the IV is sometimes called nonce.
+        $options    = array("authdata" => $aad, 'iv' => $iv, 'tag' => null, 'nonce' => $iv);
         $blockSize  = $this->getBlockSize();
         $missing    = $blockSize - (strlen($data) % $blockSize);
         $data      .= $this->padding->getPaddingData($blockSize, $missing);
-
-        // Depending on the mode, the IV is sometimes called nonce.
-        $options    = array("authdata" => $aad, 'iv' => $iv, 'tag' => null, 'nonce' => $iv);
         $res        = tomcrypt_cipher_encrypt($this->cipher, $key, $data, $this->mode, $options);
         $tag        = $options['tag'];
-
         return $res;
     }
 
     public function decrypt($iv, $key, $data, $tag = null, $aad = '')
     {
-        $blockSize  = $this->getBlockSize();
-        $res        = @mcrypt_decrypt($this->cipher, $key, $data, $this->mode, $iv);
-        $padLen     = $this->padding->getPaddingSize($res, $blockSize);
-
         // Depending on the mode, the IV is sometimes called nonce.
         $options    = array("authdata" => $aad, 'iv' => $iv, 'nonce' => $iv, 'tag' => $tag);
+        $blockSize  = $this->getBlockSize();
         $res        = tomcrypt_cipher_decrypt($this->cipher, $key, $data, $this->mode, $options);
-
+        $padLen     = $this->padding->getPaddingSize($res, $blockSize);
         return $padLen ? (string) substr($res, 0, -$padLen) : $res;
     }
 
