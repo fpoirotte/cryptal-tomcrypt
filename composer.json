@@ -22,7 +22,7 @@
         "ext-tomcrypt": "*",
         "fpoirotte/cryptal": "dev-master"
     },
-    "provides": {
+    "provide": {
         "fpoirotte/cryptal-implementation": "0.0.0"
     },
     "require-dev": {
