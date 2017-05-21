@@ -1,11 +1,11 @@
 <?php
 
-namespace fpoirotte\Cryptal;
+namespace fpoirotte\Cryptal\Implementers;
 
-use fpoirotte\Cryptal\CryptoInterface;
+use fpoirotte\Cryptal\Implementers\CryptoInterface;
 use fpoirotte\Cryptal\PaddingInterface;
 
-class Implementation implements CryptoInterface
+class Crypto implements CryptoInterface
 {
     protected $cipher;
     protected $mode;
