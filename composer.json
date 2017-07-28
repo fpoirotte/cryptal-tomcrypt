@@ -33,13 +33,17 @@
     },
     "autoload": {
         "psr-4": {
-            "fpoirotte\\Cryptal\\Plugins\\": "src/"
+            "fpoirotte\\Cryptal\\Plugins\\Tomcrypt\\": "src/"
         }
     },
     "extra": {
         "branch-alias": {
             "dev-develop": "1.0.x-dev"
         },
-        "cryptal.entrypoint": "fpoirotte\\Cryptal\\Plugins\\Tomcrypt"
+        "cryptal.entrypoint": [
+            "fpoirotte\\Cryptal\\Plugins\\Tomcrypt\\Crypto",
+            "fpoirotte\\Cryptal\\Plugins\\Tomcrypt\\Hash",
+            "fpoirotte\\Cryptal\\Plugins\\Tomcrypt\\Mac"
+        ]
     }
 }

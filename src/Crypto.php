@@ -1,6 +1,6 @@
 <?php
 
-namespace fpoirotte\Cryptal\Plugins;
+namespace fpoirotte\Cryptal\Plugins\Tomcrypt;
 
 use fpoirotte\Cryptal\Implementers\CryptoInterface;
 use fpoirotte\Cryptal\Implementers\PluginInterface;
@@ -10,7 +10,7 @@ use fpoirotte\Cryptal\ModeEnum;
 use fpoirotte\Cryptal\RegistryWrapper;
 use fpoirotte\Cryptal\ImplementationTypeEnum;
 
-class Tomcrypt implements CryptoInterface, PluginInterface
+class Crypto implements CryptoInterface, PluginInterface
 {
     protected $cipherConst;
     protected $modeConst;
