@@ -1,6 +1,7 @@
 {
     "prefer-stable": true,
     "name": "fpoirotte/cryptal-tomcrypt",
+    "type": "cryptal-plugin",
     "description": "An implementation of the Cryptography Abstraction Layer based on LibTomCrypt",
     "keywords": ["cryptal", "crypto", "cryptography", "tomcrypt", "libtomcrypt"],
     "homepage": "https://github.com/fpoirotte/cryptal-tomcrypt",
@@ -23,7 +24,7 @@
         "fpoirotte/cryptal": "dev-master"
     },
     "provide": {
-        "fpoirotte/cryptal-crypto-impl": "0.0.0"
+        "fpoirotte/cryptal-implementation": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
@@ -32,12 +33,13 @@
     },
     "autoload": {
         "psr-4": {
-            "fpoirotte\\Cryptal\\Implementers\\": "src/"
+            "fpoirotte\\Cryptal\\Plugins\\": "src/"
         }
     },
     "extra": {
         "branch-alias": {
             "dev-develop": "1.0.x-dev"
-        }
+        },
+        "cryptal.entrypoint": "fpoirotte\\Cryptal\\Plugins\\Tomcrypt"
     }
 }

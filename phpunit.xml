@@ -5,7 +5,7 @@
 
   <testsuites>
     <testsuite name="unit">
-      <directory suffix=".php">vendor/fpoirotte/cryptal/tests/implementation/</directory>
+      <directory suffix=".php">vendor/fpoirotte/cryptal/tests/Implementation/</directory>
     </testsuite>
   </testsuites>
 
