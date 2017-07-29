@@ -3,7 +3,7 @@
 namespace fpoirotte\Cryptal\Plugins\Tomcrypt;
 
 use fpoirotte\Cryptal\Implementers\PluginInterface;
-use fpoirotte\Cryptal\Implementers\MacInterface;
+use fpoirotte\Cryptal\Implementers\AbstractMac;
 use fpoirotte\Cryptal\RegistryWrapper;
 use fpoirotte\Cryptal\CipherEnum;
 use fpoirotte\Cryptal\HashEnum;
@@ -11,7 +11,7 @@ use fpoirotte\Cryptal\MacEnum;
 use fpoirotte\Cryptal\ImplementationTypeEnum;
 use fpoirotte\Cryptal\SubAlgorithmAbstractEnum;
 
-class Mac extends MacInterface implements PluginInterface
+class Mac extends AbstractMac implements PluginInterface
 {
     private $data;
     private $key;
@@ -132,7 +132,7 @@ class Mac extends MacInterface implements PluginInterface
         $this->data .= $data;
     }
 
-    protected function internalFinish()
+    protected function internalFinalize()
     {
         return tomcrypt_mac_string($this->algo, $this->innerAlgo, $this->key, $this->data, true);
     }

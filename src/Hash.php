@@ -3,12 +3,12 @@
 namespace fpoirotte\Cryptal\Plugins\Tomcrypt;
 
 use fpoirotte\Cryptal\Implementers\PluginInterface;
-use fpoirotte\Cryptal\Implementers\HashInterface;
+use fpoirotte\Cryptal\Implementers\AbstractHash;
 use fpoirotte\Cryptal\RegistryWrapper;
 use fpoirotte\Cryptal\HashEnum;
 use fpoirotte\Cryptal\ImplementationTypeEnum;
 
-class Hash extends HashInterface implements PluginInterface
+class Hash extends AbstractHash implements PluginInterface
 {
     private $data;
     protected $algo;
@@ -52,7 +52,7 @@ class Hash extends HashInterface implements PluginInterface
         $this->data .= $data;
     }
 
-    protected function internalFinish()
+    protected function internalFinalize()
     {
         return tomcrypt_hash_string($this->algo, $this->data, true);
     }
