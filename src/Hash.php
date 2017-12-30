@@ -26,7 +26,6 @@ class Hash extends AbstractHash implements PluginInterface
     protected static function checkSupport()
     {
         $mapping  = array(
-            (string) HashEnum::HASH_CRC32()     => 'TOMCRYPT_HASH_CRC32',
             (string) HashEnum::HASH_MD2()       => 'TOMCRYPT_HASH_MD2',
             (string) HashEnum::HASH_MD4()       => 'TOMCRYPT_HASH_MD4',
             (string) HashEnum::HASH_MD5()       => 'TOMCRYPT_HASH_MD5',
