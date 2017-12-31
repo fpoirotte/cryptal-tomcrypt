@@ -49,23 +49,29 @@ class Crypto implements CryptoInterface, PluginInterface
     {
         // First, build the list of supported ciphers.
         $candidates = array(
-            (string) CipherEnum::CIPHER_3DES()      => 'TOMCRYPT_CIPHER_3DES',
-            (string) CipherEnum::CIPHER_BLOWFISH()  => 'TOMCRYPT_CIPHER_BLOWFISH',
-            (string) CipherEnum::CIPHER_CAST5()     => 'TOMCRYPT_CIPHER_CAST5',
-            (string) CipherEnum::CIPHER_DES()       => 'TOMCRYPT_CIPHER_DES',
-            (string) CipherEnum::CIPHER_RC2()       => 'TOMCRYPT_CIPHER_RC2',
-            (string) CipherEnum::CIPHER_RC4()       => 'TOMCRYPT_CIPHER_RC4',
-            (string) CipherEnum::CIPHER_SEED()      => 'TOMCRYPT_CIPHER_KSEED',
-            (string) CipherEnum::CIPHER_TWOFISH()   => 'TOMCRYPT_CIPHER_TWOFISH',
+            (string) CipherEnum::CIPHER_3DES()          => 'TOMCRYPT_CIPHER_3DES',
+            (string) CipherEnum::CIPHER_BLOWFISH()      => 'TOMCRYPT_CIPHER_BLOWFISH',
+            (string) CipherEnum::CIPHER_CAST5()         => 'TOMCRYPT_CIPHER_CAST5',
+            (string) CipherEnum::CIPHER_CHACHA20()      => 'TOMCRYPT_CIPHER_CHACHA',
+            (string) CipherEnum::CIPHER_DES()           => 'TOMCRYPT_CIPHER_DES',
+            (string) CipherEnum::CIPHER_RC2()           => 'TOMCRYPT_CIPHER_RC2',
+            (string) CipherEnum::CIPHER_RC4()           => 'TOMCRYPT_CIPHER_RC4',
+            (string) CipherEnum::CIPHER_SEED()          => 'TOMCRYPT_CIPHER_KSEED',
+            (string) CipherEnum::CIPHER_TWOFISH()       => 'TOMCRYPT_CIPHER_TWOFISH',
 
             // Special notes on libtomcrypt's AES implementation.
             //
             // libtomcrypt uses the same cipher name for all variants of AES.
             // It then uses the key's length at runtime to determine
             // the actual variant in use.
-            (string) CipherEnum::CIPHER_AES_128()   => 'TOMCRYPT_CIPHER_RIJNDAEL',
-            (string) CipherEnum::CIPHER_AES_192()   => 'TOMCRYPT_CIPHER_RIJNDAEL',
-            (string) CipherEnum::CIPHER_AES_256()   => 'TOMCRYPT_CIPHER_RIJNDAEL',
+            (string) CipherEnum::CIPHER_AES_128()       => 'TOMCRYPT_CIPHER_RIJNDAEL',
+            (string) CipherEnum::CIPHER_AES_192()       => 'TOMCRYPT_CIPHER_RIJNDAEL',
+            (string) CipherEnum::CIPHER_AES_256()       => 'TOMCRYPT_CIPHER_RIJNDAEL',
+
+            // The same holds true for Camellia.
+            (string) CipherEnum::CIPHER_CAMELIA_128()   => 'TOMCRYPT_CIPHER_CAMELLIA',
+            (string) CipherEnum::CIPHER_CAMELIA_192()   => 'TOMCRYPT_CIPHER_CAMELLIA',
+            (string) CipherEnum::CIPHER_CAMELIA_256()   => 'TOMCRYPT_CIPHER_CAMELLIA',
         );
 
         $res = array();
