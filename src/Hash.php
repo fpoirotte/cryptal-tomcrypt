@@ -31,10 +31,14 @@ class Hash extends AbstractHash implements PluginInterface
             (string) HashEnum::HASH_MD5()       => 'TOMCRYPT_HASH_MD5',
             (string) HashEnum::HASH_RIPEMD160() => 'TOMCRYPT_HASH_RIPEMD160',
             (string) HashEnum::HASH_SHA1()      => 'TOMCRYPT_HASH_SHA1',
-            (string) HashEnum::HASH_SHA224()    => 'TOMCRYPT_HASH_SHA224',
-            (string) HashEnum::HASH_SHA256()    => 'TOMCRYPT_HASH_SHA256',
-            (string) HashEnum::HASH_SHA384()    => 'TOMCRYPT_HASH_SHA384',
-            (string) HashEnum::HASH_SHA512()    => 'TOMCRYPT_HASH_SHA512',
+            (string) HashEnum::HASH_SHA2_224()  => 'TOMCRYPT_HASH_SHA224',
+            (string) HashEnum::HASH_SHA2_256()  => 'TOMCRYPT_HASH_SHA256',
+            (string) HashEnum::HASH_SHA2_384()  => 'TOMCRYPT_HASH_SHA384',
+            (string) HashEnum::HASH_SHA2_512()  => 'TOMCRYPT_HASH_SHA512',
+            (string) HashEnum::HASH_SHA3_224()  => 'TOMCRYPT_HASH_SHA3_224',
+            (string) HashEnum::HASH_SHA3_256()  => 'TOMCRYPT_HASH_SHA3_256',
+            (string) HashEnum::HASH_SHA3_384()  => 'TOMCRYPT_HASH_SHA3_384',
+            (string) HashEnum::HASH_SHA3_512()  => 'TOMCRYPT_HASH_SHA3_512',
         );
 
         $supported = array();
